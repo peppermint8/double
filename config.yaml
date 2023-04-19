@@ -1,0 +1,694 @@
+# config for Doubleback
+# colors in "quotes" 
+
+title: Doubleback II
+window_x: 1000
+window_y: 700
+background_color: "#183018"
+#background_color: "#301818"
+#background_color: "#181830"
+game_font: resources/CheyenneSans-Regular.ttf
+end_text_screen: doubleback.txt
+
+music: 
+  - resources/into_the_pink.mp3
+  - resources/northbound-forward.mp3 
+  - resources/wayfinder-rove.mp3 
+music_volume: 0.9
+sound:
+  create_item: resources/mixkit-page-forward-single-chime-1107.wav
+  score: resources/mixkit-arcade-bonus-alert-767.wav
+  crash: resources/mixkit-arcade-game-explosion-echo-1698.wav
+  game_over: resources/mixkit-tech-break-fail-2947.wav
+  level: resources/mixkit-bonus-earned-in-video-game-2058.wav 
+sound_volume: 1.0
+max_invincible: 5
+high_score_file: high_score.txt
+
+menu:
+  title_y: 100
+  option1_y: 250
+  option2_y: 300
+  quit_y: 350
+  item_y: 450
+  title_font_size: 64
+  menu_font_size: 32
+  item_font_size: 24
+  option1: 1 Player
+  option2: 2 Players
+  quit_txt: Exit
+  menu_color: "#00FF00"
+  menu_select_color: "#FFFFFF"
+  item_txt_color: "#ff4400"
+  item_count: 3
+  item_rotate: 512
+  
+  #desc_txt: Enclose items in a loop for points
+  
+
+
+default_game_item_size_x: 50
+default_game_item_size_y: 50  
+points_color: "#ff4400"
+start_level: beginner_level
+
+pause_text: Paused
+text_color: "#ffffff"
+game_over_text: "GAME OVER DUDE"
+game_over_font_size: 64
+status_bar:
+  p1_color: "#00FF00" 
+  p1_font_color: "#000000"
+  p2_color: "#ff11ff" 
+  p2_font_color: "#000000"
+
+  font_size: 20
+  score_str: "Score"
+  lives_str: "Lives"
+
+player:
+  tail_width: 5
+  tail_length: 55
+  head_size: 15
+  p1_name: Player 1
+  p1_color: "#00FF00"
+  p1_eye_color: "#2211bb"
+  p1_flash_color: "#00FF00"
+  p2_name: Player 2
+  p2_color: "#ff11ff"
+  p2_eye_color: "#000000"
+  p2_flash_color: "#00FFFF"
+
+  lives: 3
+
+game_levels:
+  beginner_level:
+    level_msg: "Good luck!"
+    max_items: 4
+    next_level_score: 500
+    next_level: fruit_level
+    item_list:
+    - fruit
+    - cherry
+    - banana
+    - apple
+  fruit_level:
+    level_msg: "Welcome to the fruit level"
+    max_items: 7
+    next_level_score: 2000
+    next_level: computer_level
+    item_list:
+    - fruit
+    - cherry
+    - banana
+    - raspberry
+    - nut
+    - pineapple
+    - strawberry
+    - tangelo
+    - pear
+    - peach
+    - grapes
+    - blueberry
+    - orange
+    - apple
+  computer_level:
+    max_items: 8
+    level_msg: "Computers Suck"
+    next_level_score: 3000
+    min_delay: 25
+    max_delay: 125
+    next_level: seasons_level
+    item_list:
+    - motherboard
+    - video_card
+    - old_computer
+    - computer_mouse
+    - usb_stick
+    - memory
+    - cpu
+    - laptop
+    - diskette
+    - computer_system
+  seasons_level:
+    max_items: 4
+    level_msg: "Seasons of the year"
+    next_level_score: 4000
+    next_level: southpark_level
+    item_list:
+    - autumn
+    - summer
+    - spring
+    - winter
+  southpark_level:
+    max_items: 8
+    level_msg: "This is going to be awesome"
+    next_level_score: 5000
+    next_level: party_level
+    item_list:
+    - kyle_broflovski
+    - eric_cartman
+    - kenny_mccormick
+    - stan_marsh
+    - bender
+    - beavis
+    - butthead
+    #- skeleton
+  party_level:
+    max_items: 12
+    level_msg: "Party time!"
+    next_level_score: 6000
+    next_level: animal_level
+    min_delay: 25
+    max_delay: 225    
+    item_list:
+    - ice_cream_cone
+    - boombox
+    - taco
+    - pizza
+    - hamburger
+    - beach_ball
+    - cupcake
+    - party_balloon
+    - plush
+    - candy
+    - birthday_cake
+    - hot_dog
+    - cookie
+    - popcorn
+    - pretzel
+    - poison
+  animal_level:
+    max_items: 10
+    level_msg: "The animal level"
+    next_level_score: 7000
+    next_level: end_level
+    item_list:
+    - poison
+    - bacteria
+    - bug
+    - clown_fish
+    - fish
+    - jackalope
+    - jellyfish
+    - moorish_idol
+    - pixel_cat
+    - whale
+    - turtle
+    - stingray
+    - budgie
+    - bumblebee
+    - cat
+    - corgi
+    - dolphin
+    - duck
+    - flamingo
+    - frog
+    - kitty
+    - orca
+    - monarch_butterfly
+    - ladybug
+    - narwhal
+    - nautilus
+    - penguin
+    - pig
+    - puppy
+    - seahorse
+    - rabbit
+    - rattlesnake
+    - shark
+    - sheep
+    - snake
+  end_level:
+    level_msg: "The last level"
+    next_level: everything_level
+    max_items: 15
+    min_delay: 25
+    max_delay: 120
+    item_list:
+    - doubleback_crt
+    - tank
+    - python
+    - helicopter
+    - poison
+    - lock
+    - unlock
+    - roboto
+    - thriller
+    - skull
+    - hot_air_balloon
+    - time
+    - heart
+  # everything level?
+  everything_level:
+    level_msg: "I lied, here is everything"
+    max_items: 25
+    min_delay: 30
+    max_delay: 200
+
+
+game_items:
+ doubleback_crt:
+  image: resources/double2.jpg
+  size_x: 140
+  size_y: 100
+  value: 1000
+ doubleback_screen:
+  image: resources/doubleback3.gif
+  size_x: 255
+  size_y: 191
+  value: 500
+ banana:
+   image: resources/icons8-banana-96.png
+   value: 25
+   rotate: 1
+   image_change_ticks: 4
+ cherry:
+   image: resources/icons8-cherry-96.png
+   value: 50
+ nut:
+   image: resources/icons8-nut-96.png
+   value: 50
+ fruit:
+   image_list:
+   - resources/icons8-cherry-96.png
+   - resources/icons8-banana-96.png
+   - resources/icons8-strawberry-96.png
+   value: 100
+   image_change_ticks: 8
+   create_sound: resources/mixkit-tech-break-fail-2947.wav
+   delete_sound: resources/mixkit-tech-break-fail-2947.wav
+   
+ pineapple:
+   image: resources/icons8-pineapple-96.png
+   value: 75
+ raspberry:
+   image: resources/icons8-raspberry-96.png
+   value: 50
+ strawberry:
+   image: resources/icons8-strawberry-96.png
+   value: 25
+ laptop:
+   image: resources/icons8-laptop-96.png
+   value: 100
+   move_style: random-xy
+   move_limit: 30
+   velocity: 3      
+ arcade:
+   image: resources/icons8-apple-arcade-96.png
+   value: 75
+ memory:
+   image: resources/icons8-memory-slot-96.png
+   value: 150
+   move_style: random-x
+   move_limit: 30
+   velocity: 4      
+ cpu: 
+   image: resources/icons8-processor-96.png
+   value: 100
+   move_style: random-y
+   move_limit: 30
+   velocity: 3      
+ usb_stick:
+   image: resources/icons8-usb-memory-stick-96.png
+   value: 50
+ video_card:
+   image: resources/icons8-video-card-96.png
+   value: 150
+   move_style: random-xy
+   move_limit: 45
+   velocity: 5      
+ tangelo:
+   image: resources/icons8-tangelo-96.png
+   value: 75
+ pear:
+   image: resources/icons8-pear-96.png
+   value: 50
+ peach: 
+   image: resources/icons8-peach-96.png
+   value: 75
+ old_computer:
+   image: resources/icons8-old-computer-96.png
+   value: 50
+   move_style: random-x
+   move_limit: 30
+   velocity: 2
+ computer_system:
+   image_list:
+   - resources/icons8-system-report-96.png
+   - resources/icons8-system-task-96.png
+   - resources/icons8-system-information-96.png
+   value: 250
+   image_change_ticks: 8
+   create_sound: resources/mixkit-tech-break-fail-2947.wav
+   delete_sound: resources/mixkit-tech-break-fail-2947.wav
+
+ computer_mouse:
+   image: resources/icons8-mouse-96.png
+   value: 50
+   move_style: random-xy
+   move_limit: 30
+   velocity: 2   
+ motherboard:
+   image: resources/icons8-motherboard-96.png
+   value: 150
+   move_style: random-x
+   move_limit: 30
+   velocity: 2   
+ spring:
+   image: resources/icons8-spring-96.png
+   value: 200
+   size_x: 90
+   size_y: 90 
+   move_style: random-xy
+   move_limit: 30
+   velocity: 2        
+   create_sound: resources/mixkit-bonus-earned-in-video-game-2058.wav 
+   rotate: 8
+   image_change_ticks: 4      
+ summer:
+   image: resources/icons8-summer-96.png
+   value: 250
+   size_x: 90
+   size_y: 90         
+   move_style: random-xy
+   move_limit: 30
+   velocity: 3   
+   create_sound: resources/mixkit-bonus-earned-in-video-game-2058.wav 
+   rotate: -5
+   image_change_ticks: 4      
+ winter:
+   image: resources/icons8-winter-96.png
+   value: 150
+   size_x: 90
+   size_y: 90 
+   move_style: random-xy
+   move_limit: 30
+   velocity: 2           
+   create_sound: resources/mixkit-bonus-earned-in-video-game-2058.wav 
+   rotate: 4
+   image_change_ticks: 4   
+ autumn:
+   image: resources/icons8-autumn-96.png
+   value: 200
+   size_x: 90
+   size_y: 90   
+   move_style: random-xy
+   move_limit: 30
+   velocity: 3         
+   create_sound: resources/mixkit-bonus-earned-in-video-game-2058.wav 
+   rotate: -5
+   image_change_ticks: 5
+ stan_marsh:
+   image: resources/icons8-stan-marsh-96.png
+   value: 300
+   size_x: 80
+   size_y: 80   
+   move_style: target
+   velocity: 4      
+ kenny_mccormick:
+   image: resources/icons8-kenny-mccormick-96.png
+   value: 200
+   size_x: 80
+   size_y: 80      
+   move_style: target
+   velocity: 4         
+ eric_cartman:
+   image: resources/icons8-eric-cartman-96.png
+   value: 250
+   size_x: 80
+   size_y: 80      
+   move_style: target
+   velocity: 5         
+   create_sound: resources/cartman.wav
+ kyle_broflovski:
+   image: resources/icons8-kyle-broflovski-96.png
+   value: 300
+   size_x: 80
+   size_y: 80      
+   move_style: target
+   velocity: 4         
+   create_sound: resources/kyle.wav
+ bender:
+   image: resources/icons8-futurama-bender-96.png
+   value: 100
+   size_x: 80
+   size_y: 80    
+   create_sound: resources/bender.mp3
+ beavis:
+   image: resources/beavis.png
+   size_x: 43
+   size_y: 80
+   move_style: target
+   velocity: 5   
+   create_sound: resources/beavis.mp3
+ butthead:
+   image: resources/butthead.png
+   size_x: 45
+   size_y: 80 
+   move_style: target
+   velocity: 5    
+   create_sound: resources/butthead.mp3
+ #skeleton:
+ #  # does not work with animated gif
+ #  image: resources/icons8-walking-skeleton.gif
+ #  value: 250
+ taco:
+   image: resources/icons8-taco-96.png
+ diskette:
+   image: resources/icons8-save-96.png
+ roboto:
+   image: resources/icons8-science-fiction-96.png
+ tank:
+   image: resources/icons8-tank-96.png
+   move_style: random-x
+   move_limit: 30
+   velocity: 4   
+ thriller:
+   image: resources/icons8-thriller-96.png
+ plush:
+   image: resources/icons8-plush-96.png
+ pizza:
+   image: resources/icons8-pizza-96.png
+ python:
+   image: resources/icons8-python-96.png
+ skull:
+   image: resources/icons8-skull-96.png
+   value: -1
+ time:
+   image: resources/icons8-time-96.png
+ 
+ bacteria:
+   image: resources/icons8-bacteria-96.png
+   move_style: target
+   velocity: 1         
+ beach_ball:
+   image: resources/icons8-beach-ball-96.png
+   rotate: 3
+   image_change_ticks: 4   
+ boombox:
+   image: resources/icons8-boombox-96.png
+ bug:
+   image: resources/icons8-bug-96.png
+ candy:
+   image: resources/icons8-candy-96.png
+   rotate: 1
+   image_change_ticks: 5
+ cassette:
+   image: resources/icons8-cassette-96.png
+ clown_fish:
+   image: resources/icons8-clown-fish-96.png
+   move_style: horizontal
+   velocity: 3
+ cupcake:
+   image: resources/icons8-cupcake-96.png
+ fish:
+   image: resources/icons8-fish-96.png
+   move_style: horizontal
+   velocity: 3   
+ hamburger:
+   image: resources/icons8-hamburger-96.png
+ helicopter:
+   image: resources/icons8-helicopter-96.png
+   move_style: vertical
+   move_limit: 30
+   velocity: 4   
+ hot_air_balloon:
+   image: resources/icons8-hot-air-balloon-96.png
+   move_style: random-x
+   move_limit: 30
+   velocity: 2   
+ ice_cream_cone:
+   image: resources/icons8-ice-cream-cone-96.png
+ jackalope:
+   image: resources/icons8-jackalope-96.png
+   move_style: target
+   velocity: 3   
+ jellyfish:
+   image: resources/icons8-jellyfish-96.png
+   move_style: vertical
+   velocity: 2
+ lock:
+   image_list:
+   - resources/icons8-lock-96.png
+   - resources/icons8-unlock-96.png
+   image_change_ticks: 3
+ moorish_idol:
+   image: resources/icons8-moorish-idol-96.png
+   move_style: horizontal
+   velocity: 5  
+ pixel_cat:
+   image: resources/icons8-pixel-cat-96.png
+   move_style: target
+   velocity: 3   
+   create_sound: resources/mixkit-sweet-kitty-meow-93.wav
+ poison:
+   image: resources/icons8-poison-96.png
+   value: -1
+ party_balloon:
+   image: resources/icons8-party-balloon-96.png
+ steam:
+   image: resources/icons8-steam-96.png
+ youtube:
+   image: resources/icons8-youtube-96.png
+ tiktok:
+   image: resources/icons8-tiktok-96.png
+ spotify:
+   image: resources/icons8-spotify-96.png
+ twitter:
+   image: resources/icons8-twitter-96.png
+ pretzel:
+   image: resources/icons8-pretzel-96.png
+ popcorn:
+   image: resources/icons8-popcorn-96.png
+ pinterest:
+   image: resources/icons8-pinterest-96.png
+ orange:
+   image: resources/icons8-orange-96.png
+   value: 75
+ nvidia:
+   image: resources/icons8-nvidia-96.png
+ netflix:
+   image: resources/icons8-netflix-desktop-96.png
+ linkedin:
+   image: resources/icons8-linkedin-96.png
+ instagram:
+   image: resources/icons8-instagram-96.png
+ hot_dog:
+   image: resources/icons8-hot-dog-96.png
+ grapes:
+   image: resources/icons8-grapes-96.png
+ google:
+   image: resources/icons8-google-96.png
+ facebook:
+   image: resources/icons8-facebook-96.png
+ cookie:
+   image: resources/icons8-cookie-96.png
+ blueberry:
+   image: resources/icons8-blueberry-96.png
+ apple:
+   image: resources/icons8-apple-96.png
+   value: 25
+   #move_style: target
+   #velocity: 5
+ apple_logo:
+   image: resources/icons8-apple-logo-96.png
+ birthday_cake:
+   image: resources/icons8-birthday-cake-96.png
+ budgie:
+   image: resources/icons8-budgie-96.png
+   move_style: target
+   velocity: 3   
+ bumblebee:
+   image: resources/icons8-bumblebee-96.png
+   move_style: target
+   velocity: 5   
+ cat:
+   image: resources/icons8-cat-96.png
+   move_style: target
+   velocity: 4   
+   create_sound: resources/mixkit-sweet-kitty-meow-93.wav
+ corgi:
+   image: resources/icons8-corgi-96.png
+   move_style: target
+   velocity: 5   
+ dolphin:
+   image: resources/icons8-dolphin-96.png
+   move_style: target
+   velocity: 3   
+ duck:
+   image: resources/icons8-duck-96.png
+   move_style: horizontal
+   velocity: 2   
+ flamingo:
+   image: resources/icons8-flamingo-96.png
+ frog:
+   image: resources/icons8-frog-96.png
+   move_style: target
+   velocity: 3   
+ kitty:
+   image: resources/icons8-kitty-96.png
+   move_style: target
+   velocity: 3   
+ ladybug:
+   image: resources/icons8-ladybird-96.png
+   move_style: target
+   velocity: 2   
+ monarch_butterfly:
+   image: resources/icons8-monarch-butterfly-96.png
+   move_style: target
+   velocity: 2      
+ narwhal:
+   image: resources/icons8-narwhal-96.png
+   move_style: target
+   velocity: 2      
+ nautilus:
+   image: resources/icons8-nautilus-96.png
+   move_style: target
+   velocity: 2      
+ orca:
+   image: resources/icons8-orca-96.png
+   move_style: target
+   velocity: 4      
+ penguin:
+   image: resources/icons8-penguin-96.png
+   move_style: target
+   velocity: 2      
+ pig:
+   image: resources/icons8-pig-96.png
+   move_style: target
+   velocity: 3      
+ puppy:
+   image: resources/icons8-puppy-96.png
+   move_style: target
+   velocity: 3      
+ rabbit:
+   image: resources/icons8-rabbit-96.png
+   move_style: target
+   velocity: 4      
+ rattlesnake:
+   image: resources/icons8-rattlesnake-96.png
+   move_style: horizontal
+   velocity: 5      
+ seahorse:
+   image: resources/icons8-seahorse-96.png
+ shark:
+   image: resources/icons8-shark-96.png
+   move_style: target
+   velocity: 5      
+ sheep:
+   image: resources/icons8-sheep-96.png
+ snake:
+   image: resources/icons8-snake-96.png
+ stingray:
+   image: resources/icons8-stingray-96.png
+   move_style: target
+   velocity: 4      
+ turtle: 
+   image: resources/icons8-turtle-96.png
+   move_style: target
+   velocity: 2      
+ whale:
+   image: resources/icons8-whale-96.png
+   move_style: target
+   velocity: 3   
