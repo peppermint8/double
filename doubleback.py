@@ -12,7 +12,6 @@ http://www.lcurtisboyle.com/nitros9/doubleback.html
 To do:
 - prevent object from appearing to close to player
 - player 2 keyboard - better movement
-- readme
 - high score
 - game icon
 - sounds if none
@@ -871,4 +870,3 @@ if __name__ == '__main__':
 
     
     sys.exit(0)            
-
