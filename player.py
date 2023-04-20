@@ -26,7 +26,7 @@ class Player():
     yd = 0
     a = 0.0 # angle of movement in radians
 
-    window_size = 50 # total segments
+    tail_length = 50 # total segments
     xy_list = []
 
     def __init__(self, px, top_left_px, bottom_right_px):
@@ -35,8 +35,7 @@ class Player():
         self.bottom_right_px = bottom_right_px
         self.screen_px = (self.bottom_right_px[0] // 2, self.bottom_right_px[1] // 2)
         self.xy_list = []
-        #print("new player")
-        #self.velocity = 50
+
     
     def __del__(self):
         pass
@@ -48,9 +47,9 @@ class Player():
         y0 = self.screen_px[1]
         v = 30 # screen movement velocity
 
-        move_mode = "tronx"
+        #move_mode = "tronx"
 
-        if move_mode == "tron":
+        if self.move_mode == "tron":
             # like tron lightcycles
             v = 15 # screen movement velocity
             if direction == "up":
@@ -137,8 +136,8 @@ class Player():
         """update player px"""
 
         self.xy_list.append(self.px)
-        # moving window
-        if len(self.xy_list) > self.window_size:
+        # moving window for tail length, chop off first element
+        if len(self.xy_list) > self.tail_length:
             self.xy_list = self.xy_list[1:]
         
         x0 = self.px[0]

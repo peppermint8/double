@@ -69,6 +69,7 @@ status_bar:
 player:
   tail_width: 5
   tail_length: 55
+  velocity: 25
   head_size: 15
   p1_name: Player 1
   p1_color: "#00FF00"

@@ -128,13 +128,12 @@ def crash(crash_sound, screen, bg, plr, bg_color):
     while crash_flag:
         c += 1
 
-        p0.color = get_rgb()
-        #p.color = random.choice([(255,255,255), (0,0,0), (128,128,128), (192,192,192)])
-        p0.head_size = random.randint(5,8)
+        p0.color = get_coco_rgb()
+        #p0.head_size = random.randint(5,8)
         
         new_tail = []    
         for px in p0.xy_list:
-            r = random.choice([1,2,3])
+            r = random.choice([-1,1,2,-2]) 
             dx = random.choice([(1,0), (-1,0), (0,1), (0,-1), (1,1), (-1, -1), (0,0)]) 
 
             x0 = px[0] + dx[0] * r
@@ -164,8 +163,8 @@ def crash(crash_sound, screen, bg, plr, bg_color):
             crash_flag = False
 
     # p.x & y = re-center
-    plr.color = p_old_color
-    plr.head_size = p_old_head_size
+    #plr.color = p_old_color
+    #plr.head_size = p_old_head_size
     
 
 def game_over(p1_score, p2_score, game_over_sound, txt_pos, screen, bg):
@@ -177,7 +176,7 @@ def game_over(p1_score, p2_score, game_over_sound, txt_pos, screen, bg):
     high_score_file = game_config.get("high_score_file")
     if high_score_file:
         with open(high_score_file, "a", encoding="utf-8") as fh:
-            fh.write("{},{}\n".format(p2_score, game_config.get("player", {}).get("p1_name", "Player 1")))
+            fh.write("{},{}\n".format(p1_score, game_config.get("player", {}).get("p1_name", "Player 1")))
             if p2_score > 0:
                 fh.write("{},{}\n".format(p2_score, game_config.get("player", {}).get("p2_name", "Player 2")))
     
@@ -189,27 +188,28 @@ def game_over(p1_score, p2_score, game_over_sound, txt_pos, screen, bg):
 
     txt_xy = game_over_text.get_rect(center=txt_pos)
 
+    clock_tick = 15
+    clock = pygame.time.Clock()
     render_flag = True
     done = False
     cnt = 0
+
     while not done:
         cnt += 1
 
-        if cnt % 64 == 0:
+        if cnt % 32 == 0:
             text_color = get_coco_rgb()
             game_over_text = game_over_font.render(game_over_str, 1, text_color)
             render_flag = True
 
 
         if render_flag:
-            
+
             bg.blit(game_over_text, txt_xy)
             render_flag = False
 
             screen.blit(bg, (0, 0))
             pygame.display.flip()
-
-
 
 
         for event in pygame.event.get():
@@ -219,8 +219,10 @@ def game_over(p1_score, p2_score, game_over_sound, txt_pos, screen, bg):
             elif event.type == KEYDOWN:
                 # any key will exit to menu
                 #if event.key == K_ESCAPE:
+         
                 done = True
 
+        clock.tick(clock_tick) 
 
 
 def init_screen():
@@ -237,7 +239,8 @@ def init_screen():
     #pygame.display.set_icon(game_icon)
     pygame.display.set_caption(game_config.get("title"))
     pygame.mouse.set_visible(False)
-
+    pygame.event.set_grab(True) 
+    
     return screen
 
 
@@ -262,7 +265,7 @@ def run_game(screen, player_cnt):
     p = Player(p1_pos, screen_top_left_px, screen_bottom_right_px)
     p.color = convert_color(game_config.get("player", {}).get("p1_color", "00FF00"))
     
-
+    p.velocity = game_config.get("player", {}).get("velocity", 30)
     p.head_size = game_config.get("player", {}).get("head_size", 10)
     p.tail_size = game_config.get("player", {}).get("tail_width", 3)
     p.tail_length = game_config.get("player", {}).get("tail_length", 30)
